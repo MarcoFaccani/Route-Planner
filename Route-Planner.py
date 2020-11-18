@@ -8,11 +8,9 @@ def update_frontiers(frontiers, neighbours, explored):
         if neighbour not in explored:
             frontiers[neighbour] = True
 
-    
 def add_to_explored(explored, vertex):
     explored[vertex] = True
     
-
 def distance(exploredVertex, frontier, M):
     x1, y1 = M.intersections[exploredVertex]
     x2, y2 = M.intersections[frontier]
@@ -37,7 +35,7 @@ def update_pathsAndDistances(M, heap_node, frontiers, goal, heap):
         heappush(heap, [path_distance + distance(path[-1], frontier, M) + heuristic(frontier, goal, M), path + [frontier] ])
     
     #Empty Frontier
-    for key in list(frontiers.keys()): del frontiers[key] # maybe I can remove .keys()
+    for key in list(frontiers.keys()): del frontiers[key]
 
         
         
